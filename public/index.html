@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaBem - ERP</title>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+
+    <script>
+        // Importe as configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyTn-kdrwzuNvgvtFtNF01ZARfKNywclo",
+            authDomain: "agendebem-d26d6.firebaseapp.com",
+            projectId: "agendebem-d26d6",
+            storageBucket: "agendebem-d26d6.appspot.com",
+            messagingSenderId: "1010551605726",
+            appId: "1:1010551605726:web:a1f47471134af939fb754f",
+            measurementId: "G-8E795PRZJD"
+        };
+    
+        // Handle login
+        const handleLogin = async (event) => {
+          event.preventDefault();
+    
+          const email = document.getElementById('emailInput').value;
+          const password = document.getElementById('passwordInput').value;
+    
+          try {
+            await signInWithEmailAndPassword(auth, email, password);
+                console.log("logado com sucesso")
+          } catch (error) {
+            console.error(error);
+            // Lidar com erros de autenticação
+          }
+        };
+    
+        // Attach the login handler to the form
+        const loginForm = document.querySelector('form');
+        loginForm.addEventListener('submit', handleLogin);
+      </script>
+
+</head>
+<body>
+    <div class="wrapper">
+      <form action="" method="POST">
+        <h1> AgendaBem - ERP</h1>
+        <div class="input-box">
+          <input type="text" id="emailInput" placeholder="E-mail de acesso" required>
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" id="passwordInput" placeholder="Senha de acesso" required>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <button type="submit" class="button">Entrar</button>
+      </form>
+    </div>
+    <script src="src/auth.js"></script>
+  </body>
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </html>
